@@ -54,6 +54,16 @@ app.get('/api/getdata', function (req, res) {
     })
 });
 
+app.get('/api/getlastdayLog', function (req, res) {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+    request.get('https://ec2-54-218-59-233.us-west-2.compute.amazonaws.com:3000/api/v1/logger/getRecent',(error, response, body) => {
+        if(error) {
+            return console.dir(error);
+        }
+        //console.log(JSON.parse(body));
+        res.send(JSON.parse(body));
+    })
+});
 
 var port = process.env.PORT || 8080;
 var server = https.createServer(app);
