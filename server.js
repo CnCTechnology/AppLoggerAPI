@@ -45,7 +45,7 @@ app.use('/', express.static(path.join(__dirname + '/client')));
 
 app.get('/api/getdata', function (req, res) {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    request.get('https://ec2-54-218-59-233.us-west-2.compute.amazonaws.com:3000/api/v1/logger/getAll',(error, response, body) => {
+    request.get('https://ec2-54-243-11-132.compute-1.amazonaws.com:3000/api/v1/logger/getAll',(error, response, body) => {
         if(error) {
             return console.dir(error);
         }
@@ -56,7 +56,7 @@ app.get('/api/getdata', function (req, res) {
 
 app.get('/api/getlastdayLog', function (req, res) {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    request.get('https://ec2-54-218-59-233.us-west-2.compute.amazonaws.com:3000/api/v1/logger/getRecent',(error, response, body) => {
+    request.get('https://ec2-54-243-11-132.compute-1.amazonaws.com:3000/api/v1/logger/getRecent',(error, response, body) => {
         if(error) {
             return console.dir(error);
         }
